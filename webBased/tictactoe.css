@@ -1,0 +1,66 @@
+/* 
+Module project for Advanced Internet And Mobile Computing (2022/23) Term 1
+Title: Noughts and Crosses game in JavaScript and HTML
+This module project is created by Haolin Yang
+University of South Wales
+Student ID 30066208
+Really appreciate the Guidance and help from Dr.Daniel Cunliffe, my module Leader
+*/
+
+body {
+  font-family: "Arial", sans-serif;
+}
+
+section,
+h1 {
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
+.enter-players {
+  text-align: center;
+}
+
+.game-set-up {
+  text-align: center;
+}
+
+.game-container-3 {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 300px;
+  margin: 50px auto;
+}
+
+.game-container-4 {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  width: 400px;
+  margin: 50px auto;
+}
+
+.game-container-5 {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  width: 500px;
+  margin: 50px auto;
+}
+
+.cell {
+  font-family: "Permanent Marker", cursive;
+  width: 100px;
+  height: 100px;
+  box-shadow: 0 0 0 1px #333333;
+  border: 1px solid #333333;
+  cursor: pointer;
+  line-height: 100px;
+  font-size: 60px;
+}
+
+.stuInfo {
+  text-align: center;
+  font-size: small;
+}

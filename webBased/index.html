@@ -1,0 +1,246 @@
+<!-- 
+Module project for Advanced Internet And Mobile Computing (2022/23) Term 1
+Title: Noughts and Crosses game in JavaScript and HTML
+This module project is created by Haolin Yang
+University of South Wales
+Student ID 30066208
+Really appreciate the Guidance and help from Dr.Daniel Cunliffe, my module Leader
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="tictactoe.css" />
+  </head>
+
+  <body>
+    <h1 class="game-title">Tic Tac Toe</h1>
+
+    <section class="game-setting">
+      <form class="set-up-form">
+        <div class="chose-size">
+          <label for="board-size">Board size</label>
+          <select class="size-container" id="board-size">
+            <option value="3x3">3x3</option>
+            <option value="4x4">4x4</option>
+            <option value="5x5">5x5</option>
+          </select>
+        </div>
+
+        <div class="chose-player">
+          <label for="player-type">Chose Player</label>
+          <select class="player-container" id="player-type">
+            <option value="human">Human</option>
+            <option value="computer-easy">Easy Computer</option>
+            <option value="computer-hard">Hard Computer</option>
+          </select>
+        </div>
+
+        <div class="chose-mode">
+          <label for="game-mode">Game Mode</label>
+          <select class="mode-container" id="game-mode">
+            <option value="classic">Classic</option>
+            <option value="items">Items</option>
+            <option value="disappear">Disappear</option>
+          </select>
+        </div>
+
+        <div class="chose-first">
+          <label for="first-player">First Player</label>
+          <select class="first-container" id="first-player">
+            <option value="Random">Random</option>
+            <option value="Player X">Player X</option>
+            <option value="Player O">Player O</option>
+          </select>
+        </div>
+
+        <div class="player-container">
+          <label for="playerX">Player X</label>
+          <input
+            type="text"
+            placeholder="enter name"
+            name="playerX"
+            id="playerX"
+            class="input-field"
+          />
+        </div>
+
+        <div class="player-container">
+          <label for="playerO">Player O</label>
+          <input
+            type="text"
+            placeholder="enter name"
+            name="playerO"
+            id="playerO"
+            class="input-field"
+          />
+        </div>
+
+        <input type="submit" class="submit-btn" value="Start Game" />
+      </form>
+    </section>
+
+    <section class="game-body">
+      <section class="game-body-3 hide">
+        <div class="game-container-3">
+          <div data-cell-index="0" class="cell"></div>
+          <div data-cell-index="1" class="cell"></div>
+          <div data-cell-index="2" class="cell"></div>
+          <div data-cell-index="3" class="cell"></div>
+          <div data-cell-index="4" class="cell"></div>
+          <div data-cell-index="5" class="cell"></div>
+          <div data-cell-index="6" class="cell"></div>
+          <div data-cell-index="7" class="cell"></div>
+          <div data-cell-index="8" class="cell"></div>
+        </div>
+      </section>
+
+      <section class="game-body-4 hide">
+        <div class="game-container-4">
+          <div data-cell-index="0" class="cell"></div>
+          <div data-cell-index="1" class="cell"></div>
+          <div data-cell-index="2" class="cell"></div>
+          <div data-cell-index="3" class="cell"></div>
+          <div data-cell-index="4" class="cell"></div>
+          <div data-cell-index="5" class="cell"></div>
+          <div data-cell-index="6" class="cell"></div>
+          <div data-cell-index="7" class="cell"></div>
+          <div data-cell-index="8" class="cell"></div>
+          <div data-cell-index="9" class="cell"></div>
+          <div data-cell-index="10" class="cell"></div>
+          <div data-cell-index="11" class="cell"></div>
+          <div data-cell-index="12" class="cell"></div>
+          <div data-cell-index="13" class="cell"></div>
+          <div data-cell-index="14" class="cell"></div>
+          <div data-cell-index="15" class="cell"></div>
+        </div>
+      </section>
+
+      <section class="game-body-5 hide">
+        <div class="game-container-5">
+          <div data-cell-index="0" class="cell"></div>
+          <div data-cell-index="1" class="cell"></div>
+          <div data-cell-index="2" class="cell"></div>
+          <div data-cell-index="3" class="cell"></div>
+          <div data-cell-index="4" class="cell"></div>
+          <div data-cell-index="5" class="cell"></div>
+          <div data-cell-index="6" class="cell"></div>
+          <div data-cell-index="7" class="cell"></div>
+          <div data-cell-index="8" class="cell"></div>
+          <div data-cell-index="9" class="cell"></div>
+          <div data-cell-index="10" class="cell"></div>
+          <div data-cell-index="11" class="cell"></div>
+          <div data-cell-index="12" class="cell"></div>
+          <div data-cell-index="13" class="cell"></div>
+          <div data-cell-index="14" class="cell"></div>
+          <div data-cell-index="15" class="cell"></div>
+          <div data-cell-index="16" class="cell"></div>
+          <div data-cell-index="17" class="cell"></div>
+          <div data-cell-index="18" class="cell"></div>
+          <div data-cell-index="19" class="cell"></div>
+          <div data-cell-index="20" class="cell"></div>
+          <div data-cell-index="21" class="cell"></div>
+          <div data-cell-index="22" class="cell"></div>
+          <div data-cell-index="23" class="cell"></div>
+          <div data-cell-index="24" class="cell"></div>
+        </div>
+      </section>
+    </section>
+
+    <section class="info-operate hide">
+      <h2 class="game-status"></h2>
+      <h2 class="message-board"></h2>
+      <h2 class="items-status hide">
+        <div>2 Items are available for X</div>
+        <div>2 Items are available for O</div>
+      </h2>
+      <div class="items-status hide">
+        <h2>2 Items are available for X</h2>
+        <h2>2 Items are available for O</h2>
+      </div>
+      <button class="game-restart">Restart Game</button>
+      <button class="back">Back to Menu</button>
+      <div class="items-operate hide">
+        <button class="freeze">Freeze</button>
+
+        <button class="bomb">Bomb</button>
+
+        <form class="exchange-container">
+          <select class="exchange3 hide" id="exchange3-1">
+            <option class="exchangeOption3" value="R1">Row1</option>
+            <option class="exchangeOption3" value="R2">Row2</option>
+            <option class="exchangeOption3" value="R3">Row3</option>
+            <option class="exchangeOption3" value="C1">Col1</option>
+            <option class="exchangeOption3" value="C2">Col2</option>
+            <option class="exchangeOption3" value="C3">Col3</option>
+          </select>
+          <select class="exchange3 hide" id="exchange3-2">
+            <option class="exchangeOption3" value="R1">Row1</option>
+            <option class="exchangeOption3" value="R2">Row2</option>
+            <option class="exchangeOption3" value="R3">Row3</option>
+            <option class="exchangeOption3" value="C1">Col1</option>
+            <option class="exchangeOption3" value="C2">Col2</option>
+            <option class="exchangeOption3" value="C3">Col3</option>
+          </select>
+          <select class="exchange4 hide" id="exchange4-1">
+            <option class="exchangeOption4" value="R1">Row1</option>
+            <option class="exchangeOption4" value="R2">Row2</option>
+            <option class="exchangeOption4" value="R3">Row3</option>
+            <option class="exchangeOption4" value="R4">Row4</option>
+            <option class="exchangeOption4" value="C1">Col1</option>
+            <option class="exchangeOption4" value="C2">Col2</option>
+            <option class="exchangeOption4" value="C3">Col3</option>
+            <option class="exchangeOption4" value="C4">Col4</option>
+          </select>
+          <select class="exchange4 hide" id="exchange4-2">
+            <option class="exchangeOption4" value="R1">Row1</option>
+            <option class="exchangeOption4" value="R2">Row2</option>
+            <option class="exchangeOption4" value="R3">Row3</option>
+            <option class="exchangeOption4" value="R4">Row4</option>
+            <option class="exchangeOption4" value="C1">Col1</option>
+            <option class="exchangeOption4" value="C2">Col2</option>
+            <option class="exchangeOption4" value="C3">Col3</option>
+            <option class="exchangeOption4" value="C4">Col4</option>
+          </select>
+          <select class="exchange5 hide" id="exchange5-1">
+            <option class="exchangeOption5" value="R1">Row1</option>
+            <option class="exchangeOption5" value="R2">Row2</option>
+            <option class="exchangeOption5" value="R3">Row3</option>
+            <option class="exchangeOption5" value="R4">Row4</option>
+            <option class="exchangeOption5" value="R5">Row5</option>
+            <option class="exchangeOption5" value="C1">Col1</option>
+            <option class="exchangeOption5" value="C2">Col2</option>
+            <option class="exchangeOption5" value="C3">Col3</option>
+            <option class="exchangeOption5" value="C4">Col4</option>
+            <option class="exchangeOption5" value="C5">Col5</option>
+          </select>
+          <select class="exchange5 hide" id="exchange5-2">
+            <option class="exchangeOption5" value="R1">Row1</option>
+            <option class="exchangeOption5" value="R2">Row2</option>
+            <option class="exchangeOption5" value="R3">Row3</option>
+            <option class="exchangeOption5" value="R4">Row4</option>
+            <option class="exchangeOption5" value="R5">Row5</option>
+            <option class="exchangeOption5" value="C1">Col1</option>
+            <option class="exchangeOption5" value="C2">Col2</option>
+            <option class="exchangeOption5" value="C3">Col3</option>
+            <option class="exchangeOption5" value="C4">Col4</option>
+            <option class="exchangeOption5" value="C5">Col5</option>
+          </select>
+          <!-- <input type="submit" class="exchange-btn" value="Exchange" /> -->
+          <button class="exchange-btn">Exchange</button>
+        </form>
+        <!-- <button class="exchange">Exchange Lines</button>
+           -->
+      </div>
+    </section>
+
+    <div class="stuInfo"><br /><br /><br />Haolin Yang ID:30066208</div>
+    <script src="tictactoe.js"></script>
+  </body>
+</html>
